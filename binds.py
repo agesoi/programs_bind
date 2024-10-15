@@ -1,8 +1,14 @@
 import subprocess
 import keyboard
 
-exe_path = r"C:\Users\agesoi\AppData\Roaming\Telegram Desktop\Telegram.exe"  #путь к файлу
-  
-while True:
-    keyboard.wait("9")
-    subprocess.Popen(exe_path)
+
+#быстрое объяснение в цикле мы ожидаем когда пользователь нажмёт кнопку что бы исполнить файл 
+
+        
+def press_keyboard():
+    while True:
+        keyboard.wait("9")
+        subprocess.Popen(r"C:\Users\agesoi\AppData\Roaming\Telegram Desktop\Telegram.exe")
+
+
+

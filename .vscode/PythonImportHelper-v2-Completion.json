@@ -18,12 +18,55 @@
         "documentation": {}
     },
     {
-        "label": "exe_path",
-        "kind": 5,
+        "label": "*",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "ttk",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "press_keyboard",
+        "kind": 2,
         "importPath": "binds",
         "description": "binds",
-        "peekOfCode": "exe_path = r\"C:\\Users\\agesoi\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe\"  #путь к файлу\nwhile True:\n    keyboard.wait(\"9\")\n    subprocess.Popen(exe_path)",
+        "peekOfCode": "def press_keyboard():\n    while True:\n        keyboard.wait(\"9\")\n        subprocess.Popen(r\"C:\\Users\\agesoi\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe\")",
         "detail": "binds",
+        "documentation": {}
+    },
+    {
+        "label": "night_theme",
+        "kind": 2,
+        "importPath": "window",
+        "description": "window",
+        "peekOfCode": "def night_theme():\n    window['bg'] = '#000000'\nbtn = ttk.Button(text='night theme', width=20, command=night_theme)\nbtn.pack(expand=True, ipadx=10, ipady=10)\nwindow.mainloop()",
+        "detail": "window",
+        "documentation": {}
+    },
+    {
+        "label": "window",
+        "kind": 5,
+        "importPath": "window",
+        "description": "window",
+        "peekOfCode": "window = Tk()\nwindow.geometry('500x500')\ndef night_theme():\n    window['bg'] = '#000000'\nbtn = ttk.Button(text='night theme', width=20, command=night_theme)\nbtn.pack(expand=True, ipadx=10, ipady=10)\nwindow.mainloop()",
+        "detail": "window",
+        "documentation": {}
+    },
+    {
+        "label": "btn",
+        "kind": 5,
+        "importPath": "window",
+        "description": "window",
+        "peekOfCode": "btn = ttk.Button(text='night theme', width=20, command=night_theme)\nbtn.pack(expand=True, ipadx=10, ipady=10)\nwindow.mainloop()",
+        "detail": "window",
         "documentation": {}
     }
 ]
