@@ -1,0 +1,29 @@
+[
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "keyboard",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "keyboard",
+        "description": "keyboard",
+        "detail": "keyboard",
+        "documentation": {}
+    },
+    {
+        "label": "exe_path",
+        "kind": 5,
+        "importPath": "binds",
+        "description": "binds",
+        "peekOfCode": "exe_path = r\"C:\\Users\\agesoi\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe\"  #путь к файлу\nwhile True:\n    keyboard.wait(\"9\")\n    subprocess.Popen(exe_path)",
+        "detail": "binds",
+        "documentation": {}
+    }
+]

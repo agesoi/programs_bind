@@ -1,9 +1,8 @@
-from AppOpener import open
+import subprocess
 import keyboard
 
+exe_path = r"C:\Users\agesoi\AppData\Roaming\Telegram Desktop\Telegram.exe"  #путь к файлу
   
 while True:
-    keyboard.wait("alt")
-    open("telegram")
-    keyboard.wait("tab")
-    open("google chrome")
+    keyboard.wait("9")
+    subprocess.Popen(exe_path)
