@@ -1,6 +1,10 @@
 {
     "app1": {
-        "name":"telegram",
-        "path":"C:/Users/ineve/AppData/Roaming/Telegram Desktop/Telegram.exe"
+        "name": "telegram",
+        "path": "C:/Users/ineve/AppData/Roaming/Telegram Desktop/Telegram.exe"
+    },
+    "app2": {
+        "name": "all",
+        "path": "C:/Users/ineve/OneDrive/Рабочий стол/zapret-winws/all.cmd"
     }
 }

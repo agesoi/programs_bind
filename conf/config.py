@@ -31,7 +31,8 @@ if __name__ == '__main__':
         os.chdir('./conf')
          
     # print(os.getcwd()[-4:len(os.getcwd())])    
-    
-    uncpacked_json = unpack_json('binds.json')
+    # print(unpack_json())
+    unpacked_json = unpack_json('binds.json')
+    # print(unpacked_json)
     for i in uncpacked_json.keys():
         print(i)
