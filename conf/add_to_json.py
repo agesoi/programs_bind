@@ -5,16 +5,20 @@ import os
 
 class add_to_json:
     
-    json_name = 0
+    json_name:str = 0
     
-    def __init__(self, json_name):
+    def __init__(self, json_name:str):
+        
         self.json_name = json_name
+        
         if os.getcwd()[-4:len(os.getcwd())] != 'conf':
             os.chdir('./conf')
     
     def check_last_added(self):
+        
         unpack_json(json_name=self.json_name)
-        uncpacked_json = unpack_json('binds.json')
+        
+        uncpacked_json = unpack_json(self.json_name)
         last_added = list(uncpacked_json.keys())[-1]
         last_added = last_added[0:-1]+ str(int(last_added[len(last_added)-1])+1)
         return last_added
