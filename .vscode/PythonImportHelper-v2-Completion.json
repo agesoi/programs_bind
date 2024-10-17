@@ -1,5 +1,39 @@
 [
     {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "unpack_json",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "path_input",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "subprocess",
         "kind": 6,
         "isExtraImport": true,
@@ -34,6 +68,33 @@
         "documentation": {}
     },
     {
+        "label": "add_to_json",
+        "kind": 6,
+        "importPath": "conf.add_to_json",
+        "description": "conf.add_to_json",
+        "peekOfCode": "class add_to_json:\n    json_name:str = 0\n    def __init__(self, json_name:str):\n        self.json_name = json_name\n        if os.getcwd()[-4:len(os.getcwd())] != 'conf':\n            os.chdir('./conf')\n    def check_last_added(self):\n        unpack_json(json_name=self.json_name)\n        uncpacked_json = unpack_json(self.json_name)\n        last_added = list(uncpacked_json.keys())[-1]",
+        "detail": "conf.add_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "path_input",
+        "kind": 2,
+        "importPath": "conf.config",
+        "description": "conf.config",
+        "peekOfCode": "def path_input():\n    path = input(\"select file path: \")\n    slash = '\\\\'\n    path = path.replace(slash,'/' )\n    return path\ndef unpack_json (json_name):\n    with open(json_name, 'r') as f:\n        data = json.load(f)\n        return data\n# print(path)",
+        "detail": "conf.config",
+        "documentation": {}
+    },
+    {
+        "label": "unpack_jso",
+        "kind": 2,
+        "importPath": "conf.config",
+        "description": "conf.config",
+        "peekOfCode": "def unpack_json (json_name):\n    with open(json_name, 'r') as f:\n        data = json.load(f)\n        return data\n# print(path)\n# class edit_config:\n#     def __init__():\nif __name__ == '__main__':\n    # print(path_input())\n    # print(os.system('dir'))",
+        "detail": "conf.config",
+        "documentation": {}
+    },
+    {
         "label": "press_keyboard",
         "kind": 2,
         "importPath": "binds",
@@ -43,11 +104,29 @@
         "documentation": {}
     },
     {
+        "label": "select_file_path",
+        "kind": 2,
+        "importPath": "window",
+        "description": "window",
+        "peekOfCode": "def select_file_path():\n    label = ttk.Label(text=\"select file path:\")\n    label.pack(anchor=W, padx=6, pady=6)\n    entry = ttk.Entry()\n    entry.pack(anchor=W, padx=6, pady=6)\n    global path_entry\n    path_entry = entry.get()\n    btn = ttk.Button(text=\"Save\")\n    btn.pack(anchor=W, padx=6, pady=6)\nbtn = ttk.Button(text=\"Create bind\", command=select_file_path)",
+        "detail": "window",
+        "documentation": {}
+    },
+    {
         "label": "window",
         "kind": 5,
         "importPath": "window",
         "description": "window",
-        "peekOfCode": "window = Tk()\nwindow.geometry('800x750+400+200')\nwindow.iconbitmap(default=\"icon.ico\")\nwindow.title('programs_bind')\nwindow.mainloop()",
+        "peekOfCode": "window = Tk()\nwindow.geometry('500x500')\nwindow.resizable(False, False)\nwindow.iconbitmap(default=\"icon.ico\")\nwindow.title('programs_bind')\ndef select_file_path():\n    label = ttk.Label(text=\"select file path:\")\n    label.pack(anchor=W, padx=6, pady=6)\n    entry = ttk.Entry()\n    entry.pack(anchor=W, padx=6, pady=6)",
+        "detail": "window",
+        "documentation": {}
+    },
+    {
+        "label": "btn",
+        "kind": 5,
+        "importPath": "window",
+        "description": "window",
+        "peekOfCode": "btn = ttk.Button(text=\"Create bind\", command=select_file_path)\nbtn.pack(anchor=N, padx=6, pady=6)\nwindow.mainloop()",
         "detail": "window",
         "documentation": {}
     }
