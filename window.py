@@ -1,31 +1,33 @@
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, filedialog
 
 
 
 
 window = Tk()
-window.geometry('500x500')
+window.geometry('200x200')
 window.resizable(False, False)
 window.iconbitmap(default="icon.ico")
 window.title('programs_bind')
 
-
 def select_file_path():
-    label = ttk.Label(text="select file path:")
-    label.pack(anchor=W, padx=6, pady=6)
-
-    entry = ttk.Entry()
-    entry.pack(anchor=W, padx=6, pady=6)
+    global filepath
+    filepath = filedialog.askopenfilename()
+    print(filepath)
     
-    global path_entry
-    path_entry = entry.get()
+    
+def create_bind():
+    btn = ttk.Button(text="select file path", command=select_file_path)
+    btn.pack(anchor=N, padx=6, pady=6)
+    
+    btn = ttk.Button(text="input bind", command=None)
+    btn.pack(anchor=N, padx=6, pady=6)
     
     btn = ttk.Button(text="Save")
-    btn.pack(anchor=W, padx=6, pady=6)
+    btn.pack(anchor=N, padx=6, pady=6)
     
     
-btn = ttk.Button(text="Create bind", command=select_file_path)
+btn = ttk.Button(text="Create bind", command=create_bind)
 btn.pack(anchor=N, padx=6, pady=6)
 
 
