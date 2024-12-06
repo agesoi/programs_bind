@@ -1,5 +1,5 @@
 import json
-from config import unpack_json, path_input
+from .config import unpack_json, path_input
 import os
 
 
