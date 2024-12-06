@@ -9,22 +9,6 @@
         "documentation": {}
     },
     {
-        "label": "unpack_json",
-        "importPath": "config",
-        "description": "config",
-        "isExtraImport": true,
-        "detail": "config",
-        "documentation": {}
-    },
-    {
-        "label": "path_input",
-        "importPath": "config",
-        "description": "config",
-        "isExtraImport": true,
-        "detail": "config",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -68,11 +52,27 @@
         "documentation": {}
     },
     {
-        "label": "add_to_json",
+        "label": "filedialog",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "Add_to_json",
+        "importPath": "conf.add_to_json",
+        "description": "conf.add_to_json",
+        "isExtraImport": true,
+        "detail": "conf.add_to_json",
+        "documentation": {}
+    },
+    {
+        "label": "Add_to_json",
         "kind": 6,
         "importPath": "conf.add_to_json",
         "description": "conf.add_to_json",
-        "peekOfCode": "class add_to_json:\n    json_name:str = 0\n    def __init__(self, json_name:str):\n        self.json_name = json_name\n        if os.getcwd()[-4:len(os.getcwd())] != 'conf':\n            os.chdir('./conf')\n    def check_last_added(self):\n        unpack_json(json_name=self.json_name)\n        uncpacked_json = unpack_json(self.json_name)\n        last_added = list(uncpacked_json.keys())[-1]",
+        "peekOfCode": "class Add_to_json:\n    json_name:str = 0\n    # имя джсона (присваивается при инициализации)\n    def __init__(self, json_name:str):\n        # присваиваем имя джсона\n        self.json_name = json_name\n        # проверяем текущую директорию, если мы не в conf, переходим\n        if os.getcwd()[-4:len(os.getcwd())] != 'conf':\n            os.chdir('./conf')\n    def check_last_added(self):",
         "detail": "conf.add_to_json",
         "documentation": {}
     },
@@ -108,7 +108,34 @@
         "kind": 2,
         "importPath": "window",
         "description": "window",
-        "peekOfCode": "def select_file_path():\n    label = ttk.Label(text=\"select file path:\")\n    label.pack(anchor=W, padx=6, pady=6)\n    entry = ttk.Entry()\n    entry.pack(anchor=W, padx=6, pady=6)\n    global path_entry\n    path_entry = entry.get()\n    btn = ttk.Button(text=\"Save\")\n    btn.pack(anchor=W, padx=6, pady=6)\nbtn = ttk.Button(text=\"Create bind\", command=select_file_path)",
+        "peekOfCode": "def select_file_path():\n    global filepath\n    filepath = filedialog.askopenfilename()\n    print(filepath)\ndef bind():\n    global bind_button\n    bind_button = keyboard.record(\"esc\")\ndef save():\n    obj = Add_to_json()  # создаём экземпляр класса\n    obj.add_app(path=filepath, btns=bind_button)  # вызываем метод через экземпляр",
+        "detail": "window",
+        "documentation": {}
+    },
+    {
+        "label": "bind",
+        "kind": 2,
+        "importPath": "window",
+        "description": "window",
+        "peekOfCode": "def bind():\n    global bind_button\n    bind_button = keyboard.record(\"esc\")\ndef save():\n    obj = Add_to_json()  # создаём экземпляр класса\n    obj.add_app(path=filepath, btns=bind_button)  # вызываем метод через экземпляр\ndef create_bind():\n    btn = ttk.Button(text=\"select file path\", command=select_file_path)\n    btn.pack(anchor=N, padx=6, pady=6)\n    btn = ttk.Button(text=\"input bind\", command=bind)",
+        "detail": "window",
+        "documentation": {}
+    },
+    {
+        "label": "save",
+        "kind": 2,
+        "importPath": "window",
+        "description": "window",
+        "peekOfCode": "def save():\n    obj = Add_to_json()  # создаём экземпляр класса\n    obj.add_app(path=filepath, btns=bind_button)  # вызываем метод через экземпляр\ndef create_bind():\n    btn = ttk.Button(text=\"select file path\", command=select_file_path)\n    btn.pack(anchor=N, padx=6, pady=6)\n    btn = ttk.Button(text=\"input bind\", command=bind)\n    btn.pack(anchor=N, padx=6, pady=6)\n    btn = ttk.Button(text=\"Save\", command=save)\n    btn.pack(anchor=N, padx=6, pady=6)",
+        "detail": "window",
+        "documentation": {}
+    },
+    {
+        "label": "create_bind",
+        "kind": 2,
+        "importPath": "window",
+        "description": "window",
+        "peekOfCode": "def create_bind():\n    btn = ttk.Button(text=\"select file path\", command=select_file_path)\n    btn.pack(anchor=N, padx=6, pady=6)\n    btn = ttk.Button(text=\"input bind\", command=bind)\n    btn.pack(anchor=N, padx=6, pady=6)\n    btn = ttk.Button(text=\"Save\", command=save)\n    btn.pack(anchor=N, padx=6, pady=6)\nbtn = ttk.Button(text=\"Create bind\", command=create_bind)\nbtn.pack(anchor=N, padx=6, pady=6)\nwindow.mainloop()",
         "detail": "window",
         "documentation": {}
     },
@@ -117,7 +144,7 @@
         "kind": 5,
         "importPath": "window",
         "description": "window",
-        "peekOfCode": "window = Tk()\nwindow.geometry('500x500')\nwindow.resizable(False, False)\nwindow.iconbitmap(default=\"icon.ico\")\nwindow.title('programs_bind')\ndef select_file_path():\n    label = ttk.Label(text=\"select file path:\")\n    label.pack(anchor=W, padx=6, pady=6)\n    entry = ttk.Entry()\n    entry.pack(anchor=W, padx=6, pady=6)",
+        "peekOfCode": "window = Tk()\nwindow.geometry('200x200')\nwindow.resizable(False, False)\nwindow.iconbitmap(default=\"icon.ico\")\nwindow.title('programs_bind')\ndef select_file_path():\n    global filepath\n    filepath = filedialog.askopenfilename()\n    print(filepath)\ndef bind():",
         "detail": "window",
         "documentation": {}
     },
@@ -126,7 +153,7 @@
         "kind": 5,
         "importPath": "window",
         "description": "window",
-        "peekOfCode": "btn = ttk.Button(text=\"Create bind\", command=select_file_path)\nbtn.pack(anchor=N, padx=6, pady=6)\nwindow.mainloop()",
+        "peekOfCode": "btn = ttk.Button(text=\"Create bind\", command=create_bind)\nbtn.pack(anchor=N, padx=6, pady=6)\nwindow.mainloop()",
         "detail": "window",
         "documentation": {}
     }
